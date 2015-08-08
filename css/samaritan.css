@@ -1,0 +1,34 @@
+div#samaritan-prompt {
+    display: none;
+    width:100%;
+    text-align:center;
+}
+
+div#samaritan-prompt span.filler {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: normal;
+}
+
+div#samaritan-prompt span.output {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: normal;
+    text-decoration: underline;
+}
+
+div#samaritan-prompt span.pad {
+    font-family: Arial, serif;
+    font-size: 32px;
+    line-height: normal;
+    text-decoration: underline;
+}
+
+div#samaritan-prompt svg {
+    height: 32px;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
