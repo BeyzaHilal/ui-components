@@ -99,7 +99,7 @@
             }
 
             /**
-             * Initialize counter using safe defaults
+             * Initialize countdown
              *
              * @param object options
              *
