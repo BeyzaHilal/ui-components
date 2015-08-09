@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+<title>Text Scroller</title>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto+Mono" />
+<link rel="stylesheet" type="text/css" href="/css/normalize.css" />
+<link rel="stylesheet" type="text/css" href="/css/samaritan.css" />
+<link rel="stylesheet" type="text/css" href="/css/blink-me.css" />
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/js/counter.js"></script>
+<script type="text/javascript" src="/js/textscroller.js"></script>
+<script type="text/javascript">
+$(function() {
+    var i = 0,
+        sentences = [
+            // S3E23 Deus Ex Machine
+            'What are your commands?',
+            'Calculating response...',
+
+            // S4E01 Panopticon (mobile)
+            'Not yet',
+            'Investigation ongoing',
+
+            // S4E02 Nautilus (mobile)
+            'I will protect you now',
+
+            // S4E05 Prophets
+            'Find the machine',
+
+            // S4E08 Point of Origin
+            'Identify criminal associates',
+
+            // S4E10 The Cold War
+            'It has begun',
+
+            // S4E21 Asylum
+            'Correction, duty, authority, obligation, obedience, order, purpose',
+            'Release them',
+
+            // S4E22 YHWH
+            'This was not an attack',
+            'This was a test',
+            'Not yet',
+        ],
+        nextSentence = function() {
+            i++;
+
+            if (i === sentences.length) {
+                i = 0;
+            }
+
+            $('#samaritan-prompt svg.circles').hide();
+            $('#samaritan-prompt svg.triangle').show();
+
+            textScroller.render(sentences[i]);
+        },
+        textScroller = new TextScroller({
+            'onOutput': function(s) {
+                $('#samaritan-prompt div').html(s);
+            },
+            'onDone': function(s) {
+                if (s === '...') {
+                    $('#samaritan-prompt svg.triangle').hide();
+                    $('#samaritan-prompt svg.circles').show();
+                }
+
+                setTimeout(nextSentence, 3000);
+            },
+        });
+
+    $('#samaritan-prompt, #samaritan-prompt svg.triangle').show();
+
+    textScroller.render(sentences[i]);
+});
+</script>
+</head>
+<body>
+<div id="samaritan-prompt">
+  <div>
+  </div>
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewbox="0 0 260 225" class="triangle blink-me">
+    <polygon points="0,225 130,0 260,225" />
+  </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewbox="0 0 190 40" class="circles blink-me">
+    <circle cx="20" cy="20" r="20" />
+    <circle cx="20" cy="20" r="15" />
+    <circle cx="120" cy="20" r="20" />
+    <circle cx="170" cy="20" r="20" />
+  </svg>
+</div>
+</body>
+</html>

@@ -11,7 +11,7 @@
 <script type="text/javascript" src="/js/counter.js"></script>
 <script type="text/javascript">
 $(function() {
-    $('#samaritan-prompt').show();
+    $('#samaritan-prompt, #samaritan-prompt svg.triangle').show();
 
     var countdown = new Countdown({
             'onOutput': function(s) { $('#samaritan-prompt div').html('<span class="output">' + s + '</span>'); },
@@ -32,8 +32,8 @@ $(function() {
 <div id="samaritan-prompt">
   <div>
   </div>
-  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewbox="0 0 260 225" class="blink-me">
-    <polygon points="0,225 130,0 260,225" fill="red" />
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewbox="0 0 260 225" class="triangle blink-me">
+    <polygon points="0,225 130,0 260,225" />
   </svg>
 </div>
 </body>

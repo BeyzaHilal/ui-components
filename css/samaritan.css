@@ -1,3 +1,4 @@
+/* Samaritan desktop: black on white */
 @media screen and (min-width: 1024px) {
     body {
         background-color: white;
@@ -5,6 +6,7 @@
     }
 }
 
+/* Samaritan mobile: white on black */
 @media screen and (max-width: 1024px) {
     body {
         background-color: black;
@@ -16,6 +18,12 @@ div#samaritan-prompt {
     display: none;
     width:100%;
     text-align:center;
+}
+
+@media screen and (max-width: 1024px) {
+    div#samaritan-prompt span.filler, div#samaritan-prompt span.pad {
+        display: none;
+    }
 }
 
 div#samaritan-prompt span.filler {
@@ -40,9 +48,59 @@ div#samaritan-prompt span.pad {
     text-decoration: underline;
 }
 
-div#samaritan-prompt svg {
+div#samaritan-prompt svg.triangle {
+    display: none;
     height: 32px;
     border: 0;
     margin: 0;
     padding: 0;
+}
+
+div#samaritan-prompt svg.triangle polygon {
+    fill: red;
+}
+
+div#samaritan-prompt svg.circles {
+    display: none;
+    height: 12px;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    padding-top: 10px;
+}
+
+@media screen and (min-width: 1024px) {
+    div#samaritan-prompt svg.circles circle:nth-child(1) {
+        fill: black;
+    }
+
+    div#samaritan-prompt svg.circles circle:nth-child(2) {
+        fill: white;
+    }
+
+    div#samaritan-prompt svg.circles circle:nth-child(3) {
+        fill: grey;
+    }
+
+    div#samaritan-prompt svg.circles circle:nth-child(4) {
+        fill: dark-grey;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    div#samaritan-prompt svg.circles circle:nth-child(1) {
+        fill: white;
+    }
+
+    div#samaritan-prompt svg.circles circle:nth-child(2) {
+        fill: black;
+    }
+
+    div#samaritan-prompt svg.circles circle:nth-child(3) {
+        fill: white;
+    }
+
+    div#samaritan-prompt svg.circles circle:nth-child(4) {
+        fill: grey;
+    }
 }
