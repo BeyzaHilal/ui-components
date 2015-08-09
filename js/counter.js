@@ -29,7 +29,7 @@
                 _onDone,
                 _onHalt,
                 _current,
-                _delta,
+                _step,
                 _terminal,
                 _delay,
                 _halt;
@@ -60,10 +60,10 @@
             function count() {
                 if (_halt) {
                     _onHalt(_current);
-                } else if (_delta > 0 ? (_current < _terminal) : (_current > _terminal)) {
+                } else if (_step > 0 ? (_current < _terminal) : (_current > _terminal)) {
                     _onProgress(_current);
 
-                    _current += _delta;
+                    _current += _step;
 
                     if (_delay) {
                         setTimeout(count, 1000);
@@ -86,15 +86,15 @@
                 _onHalt = options.onHalt || function(i) { };
                 _current = options.start || 0;
                 _terminal = options.end || 0;
-                _delta = options.delta || 1;
+                _step = options.step || 1;
                 _delay = options.delay || 0;
 
                 if (_current < _terminal) {
-                    _delta = Math.abs(_delta);
+                    _step = Math.abs(_step);
                 }
 
                 if (_current > _terminal) {
-                    _delta = -Math.abs(_delta);
+                    _step = -Math.abs(_step);
                 }
             }
 
