@@ -78,7 +78,7 @@
 
                 if (i === 0) {
                     s = '<span class="output">&thinsp;</span>';
-                } else if (i === 1) {
+                } else if (i === 1 || trailing === '.') {
                     s = '<span class="pad">&thinsp;</span><span class="output">' + s + '</span><span class="pad">&thinsp;</span>';
                 } else {
                     s = '<span class="filler">' + filler + '</span><span class="pad">&thinsp;</span><span class="output">' + s + '</span><span class="pad">&thinsp;</span>';
