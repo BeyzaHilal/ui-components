@@ -4,6 +4,8 @@ Component | Description
 ---|---
 Countdown | see "Asylum" S4E21
 Counter | Iterate with callbacks and timers
+Speech | Speech synthesis
+TextScroller | Write text messages, one word at a time
 
 Note:
 

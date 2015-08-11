@@ -12,6 +12,7 @@
 <script type="text/javascript">
 $(function() {
     var speech = new Speech({
+            // voice preferences
             'voices': {
                 'Daniel': 1,
                 'Lee': 2,
@@ -19,6 +20,7 @@ $(function() {
                 'Fred': 5,
                 'Bruce': 5,
                 'Ralph': 4,
+                'Google UK English Male': 6,
             },
         }),
         chatbot = new ChatBot({

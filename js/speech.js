@@ -28,7 +28,11 @@
             var _onDone,
                 _queue,
                 _voices,
-                _preference;
+                _preference,
+                _lang,
+                _rate,
+                _volume,
+                _mode;
 
             /**
              * Speech recognition
@@ -95,8 +99,9 @@
                 }
 
                 u.text = _queue.shift();
-                u.lang = 'en-US';
-                u.rate = 1.2;
+                u.lang = _lang;
+                u.rate = _rate;
+                u.volume = _volume;
                 u.onend = function(event) {
                     _onDone(event);
 
@@ -119,6 +124,11 @@
                 _onDone = options.onDone || function(i) { };
                 _queue = [];
                 _voices = options.voices || ({});
+                _lang = options.lang || 'en-US';
+                _rate = options.rate || 1;
+                _volume = options.volume || 1;
+
+                _mode = options.mode || 'normal'; // continuous, normal, quick?
             }
 
             _init(options);
